@@ -2,10 +2,11 @@ import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import fetchAllFruits from './actions/fruitActions'
-import SearchBar from './components/SearchBar'
+import fetchAllParks from './actions/parkActions'
 import Navbar from './components/Navbar'
-import Fruit from './components/Fruit'
+import Home from './components/Home'
+import Region from './components/Region'
+
 
 
 function App() {
@@ -13,14 +14,14 @@ function App() {
   const dispatch = useDispatch()
   
   useEffect(() => 
-    dispatch(fetchAllFruits())
+    dispatch(fetchAllParks()) 
   ) 
 
   return (
     <Router>
       <Navbar />
-      <Route exact path='/' render={(props) => <SearchBar {...props} />} />
-      <Route exact path='/fruit/:name' component={Fruit}/>
+      <Route exact path='/' render={(props) => <Home {...props} />} />
+      <Route exact path='/:region/parks' component={Region}/>
       {/* <Route exact path='/fruit/:name/drinks/:id' component={Drink}/>
       <Route exact path='/fruit/:name/meals/:id' component={Meal}/> */}
     </Router>

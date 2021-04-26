@@ -18,8 +18,8 @@ const fruitsReducer = (state={fruits: [], drinks: [], loading: false}, action) =
             case 'LOADING_DRINKS':
                 return {
                     ...state, 
-                    fruits: [...state.fruits],
-                    drinks: [...state.drinks],
+                    // fruits: [...state.fruits],
+                    // drinks: [...state.drinks],
                     loading: true
                 }
       

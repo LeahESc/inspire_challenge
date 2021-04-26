@@ -2,25 +2,44 @@ import React from 'react'
 import Heading from './Heading'
 import Drinks from './Drinks'
 import { connect } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {Grid } from 'semantic-ui-react'
 import uuid from 'react-uuid'
 
 const Fruit = (props) => {
+    
+    let drinkCollection = []
+    
+    const [isLoading, setLoading] = useState(true)
+    const [drinks, setDrinks] = useState({})
 
-    const [drinks, setDrinks] = useState([])
     const urlArray = props.match.url.split('/')
     const fruitName = urlArray[2]
     console.log("props:", props)
 
-    useEffect(() =>  {
+    useEffect(() => { 
         fetch(`/api/json/v1/1/filter.php?i=${fruitName}`)
-        .then(response => response.json())
-        .then(data => {
-            setDrinks(data)
-        })
-    }, [])
+        .then(resp => resp.json())
+        .then(data => { 
+            let dataIds = data.drinks.map(d => d.idDrink)
+            drinkCollection = props.allDrinks.drinks.filter(dr => dr.idDrink === dataIds[0] || dr.idDrink === dataIds[1] || dr.idDrink === dataIds[2] )
+            setLoading(false)
+            })
+            
+            // setDrinks(data.drinks.map(drink => [drink.strDrink, drink.strDrinkThumb, drink.idDrink]))
+            //  include second fetch call to specific drinks using the ids from data
+        }, [])
 
+    // const matchDrinks = () => { 
+    //    return drinkCollection = drinks.forEach(d => {
+    //         return props.allDrinks.drinks.filter(dr => dr.idDrink == d)
+    //     })
+       
+    // }
+
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
     return (
         <div>
             
@@ -29,7 +48,9 @@ const Fruit = (props) => {
                     <Heading>Recipes found for {fruitName}:</Heading>
                 </Grid.Row>
                 <Grid.Column key={uuid()} width={8}>
-                    <Drinks key={uuid()} drinks={props.drinks} url={props.match.url}/> 
+                    <p>`Drinks go here: {drinkCollection}`</p>
+                    
+                    {/* <Drinks key={uuid()} drinks={drinks} url={props.match.url}/>  */}
                 </Grid.Column>
             </Grid>
         </div>
@@ -37,7 +58,7 @@ const Fruit = (props) => {
 }
 const mapStateToProps = (state) => {
     return {
-      drinks: state.fruitsReducer.drinks
+      allDrinks: state.fruitsReducer.drinks
     }
   }
 

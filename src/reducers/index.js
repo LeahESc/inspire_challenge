@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import fruitsReducer from './fruitsReducer'
-// import drinksReducer from './drinksReducer'
+import parksReducer from './parksReducer'
 
 const rootReducer = combineReducers({ 
-  fruitsReducer,
+  parksReducer,
 //   drinksReducer
 });
 

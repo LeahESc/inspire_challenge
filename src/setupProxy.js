@@ -3,9 +3,9 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
 
 module.exports = function(app) {
     app.use(
-        "/api/fruit/all", 
+        "/api/v1/parks?limit=510&api_key=hREloscdhIwvolviZMmxmhnpRlnuIEqOb3XvBu", 
         createProxyMiddleware({ 
-            target: "https://www.fruityvice.com",
+            target: "https://developer.nps.gov",
             secure: false,
             changeOrigin: true
         })

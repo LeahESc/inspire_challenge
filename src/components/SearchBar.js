@@ -13,7 +13,11 @@ const SearchBar = ({fruits, history, match}) => {
     // const fruits = useSelector(state => state.fruitsReducer.fruits)
 
     const dispatch = useDispatch()
-
+    
+    useEffect(() => { 
+        dispatch(fetchDrinks())
+    })
+    
     const handleClick = (e) => {
         e.preventDefault()
         dispatch(fetchDrinks(query))
