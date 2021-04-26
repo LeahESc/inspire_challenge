@@ -1,6 +1,7 @@
-const key = hREloscdhIwvolviZMmxmhnpRlnuIEqOb3XvBu
+
 
 const fetchAllParks = () => { 
+    const key = 'hREloscdhIwvolviZMmxmhnpRlnuIEqOb3XvBu'
     return (dispatch) => { 
         dispatch({ type:'LOADING_ALLFRUIT'})
         fetch(`/api/v1/parks?limit=510&api_key=${key}`)
