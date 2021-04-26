@@ -10,10 +10,7 @@ module.exports = function(app) {
             changeOrigin: true
         })
     )
-}
 
-
-module.exports = function(app) {
     app.use(
         "/api/json/v1/1/", 
         createProxyMiddleware({ 

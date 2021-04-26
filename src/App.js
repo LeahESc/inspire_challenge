@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import fetchAllFruits from './actions/fruitActions'
 import SearchBar from './components/SearchBar'
 import Navbar from './components/Navbar'
+import Fruit from './components/Fruit'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <Router>
-      <Nabar />
+      <Navbar />
       <Route exact path='/' render={(props) => <SearchBar {...props} />} />
       <Route exact path='/fruit/:name' component={Fruit}/>
       {/* <Route exact path='/fruit/:name/drinks/:id' component={Drink}/>
