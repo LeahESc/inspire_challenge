@@ -3,6 +3,7 @@ import { Form, Button, Input } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch, connect } from 'react-redux'
 import fetchDrinks from '../actions/drinkActions'
+import Heading from './Heading'
 
 
 const SearchBar = ({fruits, history, match}) => {
@@ -15,11 +16,11 @@ const SearchBar = ({fruits, history, match}) => {
 
     const handleClick = (e) => {
         e.preventDefault()
+        dispatch(fetchDrinks(query))
         const matchedFruit = fruits.find(fruit => fruit.name.toLowerCase() === query.toLowerCase())
         if (!matchedFruit) {
             alert("I'm sorry we couldn't find any recipes for that fruit")
         } else { 
-            dispatch(fetchDrinks(query))
             history.push(`/fruit/${query}`)    
         }
         console.log(history)
@@ -31,7 +32,7 @@ const SearchBar = ({fruits, history, match}) => {
     return (
         <Form >
             <Form.Field >
-            <label>Find your fruit!</label>
+            <Heading>Start a search for your fruit!</Heading>
          
             <Input
                 fluid type="text"

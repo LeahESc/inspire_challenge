@@ -1,11 +1,12 @@
 import React from 'react'
 import Drink from './Drink'
 import { Item } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
-const Drinks = (props) => { 
+const Drinks = ({drinks, url}) => { 
     return (
         <>
-            {props.drinks.map(drink => ( 
+            {drinks.drinks.map(drink => ( 
                 
             <Item.Group divided>
                 <Item>
@@ -23,4 +24,10 @@ const Drinks = (props) => {
         </>
 )
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+//       drinks: state.fruitsReducer.drinks
+//     }
+//   }
 export default Drinks;
