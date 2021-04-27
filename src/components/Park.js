@@ -1,16 +1,20 @@
 import React  from 'react'
+import ReactCardFlip from 'react-card-flip'
+import ParkCardFront from './ParkCardFront'
+import ParkCardBack from './ParkCardBack'
+import {useState} from 'react'
 
-const ParkCark = ({name, id, description, image, imgcaption}) => {
+const Park = ({name, id, description, image, imgcaption}) => {
 
-  const [isFlipped, setFlipped] = useState(props.isFlipped);
+  const [isFlipped, setFlipped] = useState();
   const [rotation, setRotation] = useState(0);
 
-  useEffect(() => {
-    if (props.isFlipped !== isFlipped) {
-      setFlipped(props.isFlipped);
-      setRotation((c) => c + 180);
-    }
-  }, [props.isFlipped]);
+  // useEffect(() => {
+  //   if (isFlipped !== isFlipped) {
+  //     setFlipped(isFlipped);
+  //     setRotation((c) => c + 180);
+  //   }
+  // }, [isFlipped]);
 
   
     const handleClick = (e) => {
@@ -18,22 +22,17 @@ const ParkCark = ({name, id, description, image, imgcaption}) => {
       setFlipped(!isFlipped);
     }
   
-    render() {
-      return (
-        <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
-          <YOUR_FRONT_CCOMPONENT>
-            This is the front of the card.
-            <button onClick={this.handleClick}>Click to flip</button>
-          </YOUR_FRONT_CCOMPONENT>
+
+  return (
+    <div className="card-container">
+    <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+      <ParkCardFront handleClick={handleClick} parkId={id} image={image} name={name}></ParkCardFront>
+      <ParkCardBack handleClick={handleClick} description={description} name={name}></ParkCardBack>
+    </ReactCardFlip>
+    </div>
+  )
+}
   
-          <YOUR_BACK_COMPONENT>
-            This is the back of the card.
-            <button onClick={this.handleClick}>Click to flip</button>
-          </YOUR_BACK_COMPONENT>
-        </ReactCardFlip>
-      )
-    }
-  }
     
 
-export default ParkCard;
+export default Park;

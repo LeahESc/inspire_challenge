@@ -1,50 +1,65 @@
-import React from 'react'
+import React, { Component } from 'react'
+// import React from 'react'
 import {connect} from 'react-redux'
 import {useState, useEffect} from 'react'
-import ReactCardFlip from 'react-card-flip'
+import Park from './Park'
+import uuid from 'react-uuid'
 
-const Region = ({parks, match, history}) =>  {
-    const stateHash = {midwest: ["OH", "IN", "ND", "SD", "MO", "NE", "KS", "MI", "IA", "MI", "IL"],
-                        northeast: ["ME", "VT", "RI", "NY", "MA", "CT", "NH", "MD", "PA", "NJ", "DE"], 
-                        southeast: ["KY", "TN", "NC", "VA", "WV", "GA", "FL", "SC", "AL", "MS", "LA", "AR"],
-                        }
-    const regionName = match.url.split('/')[1].replace(/[\W/]/, '' ).toLowerCase()
-    // const [stateCodes, setParks] = useState() 
-    // const regionParks = {parks}
-    let setRegionParks
+
+class Region extends Component {
     
-    useEffect(() => {
+    state = {
+        regionName: '',
+        regionParks: []
+    }
+
+    componentDidMount() { 
+        const stateHash = {midwest: ["OH", "IN", "ND", "SD", "MO", "NE", "KS", "MI", "IA", "MI", "IL"],
+        northeast: ["ME", "VT", "RI", "NY", "MA", "CT", "NH", "MD", "PA", "NJ", "DE"], 
+        southeast: ["KY", "TN", "NC", "VA", "WV", "GA", "FL", "SC", "AL", "MS", "LA", "AR"],
+        northwest: ["MT", "WY", "OR", "WA", "AK", "CA"], 
+        southwest: ["NV", "AZ", "NM", "UT", "CO", "CA", "HI", "OK"]} 
+
+        const regionName = this.props.match.url.split('/')[1].replace(/[\W/]/, '' ).toLowerCase()
         if (regionName === "midwest") {
-            setRegionParks = parks.filter(park => stateHash.midwest.includes(park.states))
+            this.setState({
+                ...this.state,
+                regionParks: this.props.parks.filter(park => stateHash.midwest.includes(park.states))
+            })
         } else if (regionName === "northeast") {
-            setRegionParks = parks.filter(park => stateHash.northeast.includes(park.states))
-        } else if (regionName == "southeast") {
-            setRegionParks = parks.filter(park => stateHash.southeast.includes(park.states))
+            this.setState({
+                ...this.state,
+                regionParks: this.props.parks.filter(park => stateHash.northeast.includes(park.states))
+            })
+        } else if (regionName === "southeast") {
+            this.setState({
+                ...this.state,
+                regionParks: this.props.parks.filter(park => stateHash.southeast.includes(park.states))
+            })
         } else if (regionName === "southwest") {
-            setRegionParks = parks.filter(park => stateHash.southwest.includes(park.states))
-        } else if (regionName === "pacific northwest") {
-            setRegionParks = parks.filter(park => stateHash.northwest.includes(park.states))
+            this.setState({
+                ...this.state,
+                regionParks: this.props.parks.filter(park => stateHash.southwest.includes(park.states))
+            })        
+        } else if (regionName === "northwest") {
+            this.setState({
+                ...this.state,
+                regionParks: this.props.parks.filter(park => stateHash.northwest.includes(park.states))
+            })
         } 
-        return setRegionParks.map(park => <Park name={park.fullName} id={park.id} description={park.descriptio} image={park.images[0].url} imgcaption={park.images[0].title}/>)
-    }, [])
-   
+    }
+
+    render() { 
+
     return (
         <div className="region">
             <h1>hello</h1>
-            <p> this component will display all the parks as parkcards in a designated region</p>
-            {/* <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
-          <ParkCardFront image={setRegion}>
-            This is the front of the card.
-            <button onClick={this.handleClick}>Click to flip</button>
-          </YOUR_FRONT_CCOMPONENT>
-  
-          <YOUR_BACK_COMPONENT>
-            This is the back of the card.
-            <button onClick={this.handleClick}>Click to flip</button>
-          </YOUR_BACK_COMPONENT>
-        </ReactCardFlip> */}
+            <div className="parks-container">
+            {this.state.regionParks.map(park => <Park key={uuid()} name={park.fullName} id={park.id} description={park.description} image={park.images[0].url? park.images[0].url : "https://www.nps.gov/common/uploads/structured_data/3C7D2D96-1DD8-B71B-0BB7225181B9E6B6.jpg" } imgcaption={park.images[0].title}/>)}
+            </div>
         </div>
     )
+    }
 }
 
 const mapStateToProps = (state) => {

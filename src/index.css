@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.card-container {
+  display: inline-block;
+  padding: .8rem;
+  max-width: 60rem;
+  max-height: 40rem;
+  vertical-align: bottom;
+}
+
+.parks-container {
+  display: block;
+ }

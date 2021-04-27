@@ -6,7 +6,7 @@ import fetchAllParks from './actions/parkActions'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Region from './components/Region'
-
+import ParkShow from './components/ParkShow'
 
 
 function App() {
@@ -22,8 +22,7 @@ function App() {
       <Navbar />
       <Route exact path='/' render={(props) => <Home {...props} />} />
       <Route exact path='/:region/parks' component={Region}/>
-      {/* <Route exact path='/fruit/:name/drinks/:id' component={Drink}/>
-      <Route exact path='/fruit/:name/meals/:id' component={Meal}/> */}
+     <Route exact path='/:region/parks/:id' component={ParkShow} />
     </Router>
   );
 }
