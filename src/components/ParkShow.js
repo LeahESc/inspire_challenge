@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { Container, Image } from 'semantic-ui-react'
+import { Container, List } from 'semantic-ui-react'
 import Carousel from 'react-responsive-carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import Heading from './Heading'
 
 const ParkShow = ({parks, match, history}) => {
@@ -10,7 +11,8 @@ const ParkShow = ({parks, match, history}) => {
 
     return (
         <div> 
-            <Carousel showArrows={true} onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb}>
+            <h1>Hello!</h1>
+            {/* <Carousel >
                 <div>
                     <img src={matchedPark.images[0].url} />
                     <p className="legend">{matchedPark.images[0].title}</p>
@@ -23,7 +25,7 @@ const ParkShow = ({parks, match, history}) => {
                     <img src={matchedPark.images[1].url} />
                     <p className="legend">{matchedPark.images[2].title}</p>
                 </div>
-            </Carousel>
+            </Carousel> */}
             <Container>
             <Heading textColor='crimson'>
                 {matchedPark.fullName}

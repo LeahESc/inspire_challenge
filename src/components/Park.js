@@ -26,7 +26,7 @@ const Park = ({name, id, description, image, imgcaption, region}) => {
   return (
     <div className="card-container">
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <ParkCardFront handleClick={handleClick} parkId={id} image={image} name={name} region={region}></ParkCardFront>
+      <ParkCardFront handleClick={handleClick} id={id} image={image} name={name} region={region}></ParkCardFront>
       <ParkCardBack handleClick={handleClick} description={description} name={name}></ParkCardBack>
     </ReactCardFlip>
     </div>
