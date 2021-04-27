@@ -1,19 +1,24 @@
 import React from 'react'
 import Heading from './Heading'
-import RegionSection from './RegionSection'
+import RegionButton from './RegionButton'
 
-const Home = () => {
+const Home = (props) => {
 
-    const handleClick = (e) => { 
-        
+    const handleClick = (e) => {
+        let region = e.target.textContent
+        props.history.push(`/${region}/parks`) 
     } 
+
+
     return (
         <div>
         <Heading>Select the region of the country you'll Be traveling to! </Heading>
-        <button onClick={handleClick}>SouthWest</button>
-        <button onClick={handleClick}>Pacific NorthWest</button>
-        <button onClick={handleClick}>Pacific NorthWest</button>
-        <RegionSection background='papayaWhip' textColor='orange' ></RegionSection>/RegionSection>
+        <RegionButton onClick={handleClick} background='papayaWhip' textColor='orange'>Southwest</RegionButton>
+        <RegionButton onClick={handleClick} background='papayaWhip' textColor='orange'>Pacific NorthWest</RegionButton>
+        <RegionButton onClick={handleClick} background='papayaWhip' textColor='orange'>Midwest</RegionButton>
+        <RegionButton onClick={handleClick} background='papayaWhip' textColor='orange'>Southeast</RegionButton>
+        <RegionButton onClick={handleClick} background='papayaWhip' textColor='orange'>Mid-Atlantic</RegionButton>
+        <RegionButton onClick={handleClick} background='papayaWhip' textColor='orange'>Northeast</RegionButton>
         </div>
     )
 }

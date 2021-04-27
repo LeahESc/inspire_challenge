@@ -3,7 +3,7 @@ const parksReducer = (state={parks: [], loading: false}, action) => {
         case 'LOADING_ALLPARKS':
             return {
                 ...state, 
-                fruits: [...state.parks],
+                parks: [...state.parks],
                 loading: true
             }
   
@@ -11,7 +11,7 @@ const parksReducer = (state={parks: [], loading: false}, action) => {
         case 'ALLPARKS_LOADED':
             return {
                 ...state,
-                fruits: action.parks,
+                parks: action.parks,
                 loading: false
             }
 
