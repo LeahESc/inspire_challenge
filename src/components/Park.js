@@ -4,7 +4,7 @@ import ParkCardFront from './ParkCardFront'
 import ParkCardBack from './ParkCardBack'
 import {useState} from 'react'
 
-const Park = ({name, id, description, image, imgcaption}) => {
+const Park = ({name, id, description, image, imgcaption, region}) => {
 
   const [isFlipped, setFlipped] = useState();
   const [rotation, setRotation] = useState(0);
@@ -26,7 +26,7 @@ const Park = ({name, id, description, image, imgcaption}) => {
   return (
     <div className="card-container">
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <ParkCardFront handleClick={handleClick} parkId={id} image={image} name={name}></ParkCardFront>
+      <ParkCardFront handleClick={handleClick} parkId={id} image={image} name={name} region={region}></ParkCardFront>
       <ParkCardBack handleClick={handleClick} description={description} name={name}></ParkCardBack>
     </ReactCardFlip>
     </div>

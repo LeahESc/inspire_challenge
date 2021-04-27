@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, Image, Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-const ParkCardFront = ({handleClick, image, name, parkId}) => {
+const ParkCardFront = ({handleClick, image, name, parkId, region}) => {
 
     const goToShoPage = () => { 
 
@@ -15,8 +15,8 @@ const ParkCardFront = ({handleClick, image, name, parkId}) => {
                 <Card.Header>{name}</Card.Header>
             </Card.Content>
             <Card.Content>
-                <Button onClick={handleClick}>Learn More</Button>
-                <Link className="btn"  to={`${parkId}`}> Take Me There!</Link>
+                <Button basic color='teal' content='Teal' onClick={handleClick}>Learn More</Button>
+                <Link className="btn"  to={`/${region}/parks/${parkId}`}> Take Me There!</Link>
             </Card.Content>
       </Card>
     )
