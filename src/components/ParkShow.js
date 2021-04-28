@@ -5,16 +5,13 @@ import Heading from './Heading'
 import '@brainhubeu/react-carousel/lib/style.css'
 import uuid from 'react-uuid'
 
-const ParkShow = ({parks, match, history}) => {
+const ParkShow = ({parks, match}) => {
     
     const matchedPark = parks.find(park => park.id == match.url.split('/')[3])
 
     return (
         <div> 
-            <Image key={uuid()} centered src={matchedPark.images[0].url} size='big'>
-                {/* <img src={matchedPark.images[1].url} style={{height: '50rem'}}/>
-                <img src={matchedPark.images[2].url} style={{height: '50rem'}}/>  */}
-            </Image>
+            <Image key={uuid()} centered src={matchedPark.images[0].url} size='big'></Image>
             <Container key={uuid()} >
             <Heading textColor='brown'>
                 {matchedPark.fullName}
@@ -28,7 +25,7 @@ const ParkShow = ({parks, match, history}) => {
             </div>
             <List>
                 <h2>Activities: </h2>
-                {matchedPark.activities.map(a =>  <List.Item key={uuid()} icon='leaf' content={a.name} />)}
+                {matchedPark.activities.map(a => <List.Item key={uuid()} icon='leaf' content={a.name} />)}
             </List>
             </Container>
             </div>
