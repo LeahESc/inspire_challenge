@@ -19,7 +19,8 @@ const RegionButton = styled.button`
     
     &:hover { 
     transform: translateY(-3px);
-    box-shadow: 0 .2rem 1rem rgba(0, 0, 0, 1)
+    box-shadow: 0 .2rem 1rem rgba(0, 0, 0, 1);
+    cursor: pointer;
     }
     `
 export default RegionButton

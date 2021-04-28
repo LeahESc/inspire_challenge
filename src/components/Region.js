@@ -53,7 +53,7 @@ class Region extends Component {
 
         return (
             <div>
-                <Heading textColor="tan">Parks in the {this.state.regionName} </Heading>
+                <Heading textColor="brown">PARKS IN THE {this.state.regionName.toUpperCase()} </Heading>
                 <div className="parks-container">
                 {this.state.regionParks.map(park => <Park key={uuid()} region={this.state.regionName} name={park.fullName} id={park.id} description={park.description} image={park.images[0].url? park.images[0].url : "https://www.nps.gov/common/uploads/structured_data/3C7D2D96-1DD8-B71B-0BB7225181B9E6B6.jpg" } imgcaption={park.images[0].title}/>)}
                 </div>
