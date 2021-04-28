@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 const RegionButton = styled.button`
-    
+    display: inline-block;
+    width: 30rem;
+    height: 30rem;
+    position: relative;
     margin: 2% 2% 5% 2%;
     padding: 30px;
     border-radius: 1rem;
@@ -10,11 +13,6 @@ const RegionButton = styled.button`
     background: url(${props => props.background}) 25% 25% no-repeat;
     color: ${props => props.color};
     font-family: 'Titan One', cursive;
-    display: inline-block;
-    width: 30rem;
-    height: 30rem;
-    padding: 5%;
-    position: relative;
     font-size: 3rem;
     
     &:hover { 
