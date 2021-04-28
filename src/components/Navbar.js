@@ -6,7 +6,7 @@ const Navbar = () => {
 
     return (
         < div >
-            <nav className="navbar navbar-light" style={{background: '#ffff'}}>
+            <nav className="navbar navbar-light" style={{background: '#ffff', margin: '1%'}}>
                 <Link to='/'>
                     <Icon name='home' size='big' color='green'/>
                 </Link>

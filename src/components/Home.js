@@ -24,7 +24,7 @@ const Home = (props) => {
     return (
         <div className="home" style={homeStyle}>
             <Title>Park Picker</Title>
-            <Heading textColor='black'>Choose from various regions of the country to learn more about the National Parks located there</Heading>
+            <Heading textColor='black'>Choose a region of the country to learn more about its National Parks</Heading>
             <RegionButton onClick={handleClick} background={swone} color='white' borderColor='brown'>Southwest</RegionButton>
             <RegionButton onClick={handleClick} background={nw} color='white' borderColor='darkgreen'>Northwest</RegionButton>
             <RegionButton onClick={handleClick} background={mw} color='white' borderColor='darkblue'>Midwest</RegionButton>

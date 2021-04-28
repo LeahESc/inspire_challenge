@@ -9,25 +9,31 @@ const ParkShow = ({parks, match}) => {
     const matchedPark = parks.find(park => park.id == match.url.split('/')[3])
 
     return (
-        <div> 
+        <> 
             <Image key={uuid()} centered src={matchedPark.images[0].url} size='big'></Image>
             <Container key={uuid()} >
+
             <Heading textColor='brown'>
                 {matchedPark.fullName}
             </Heading>
-            <div className="park-description">
+
+            <div>
                 {matchedPark.description}
             </div>
+               
                 <h2>Weather Information:</h2>
-            <div className="park-description">
+            
+            <div>
                 {matchedPark.weatherInfo}
             </div>
+           
             <List>
                 <h2>Activities: </h2>
                 {matchedPark.activities.map(a => <List.Item key={uuid()} icon='leaf' content={a.name} />)}
             </List>
+
             </Container>
-            </div>
+        </>
       
     )
 }
