@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { Container, List, Image } from 'semantic-ui-react'
 import Heading from './Heading'
-import '@brainhubeu/react-carousel/lib/style.css'
 import uuid from 'react-uuid'
 
 const ParkShow = ({parks, match}) => {
