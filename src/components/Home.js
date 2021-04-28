@@ -16,8 +16,13 @@ const Home = (props) => {
         props.history.push(`/${region}/parks`) 
     } 
 
+    const homeStyle = {
+        textAlign: 'center',
+        padding: '2%'   
+    }
+
     return (
-        <div className="home">
+        <div className="home" style={homeStyle}>
             <Title>Park Picker</Title>
             <Heading textColor='black'>Choose from various regions of the country to learn more about the National Parks located there</Heading>
             <RegionButton onClick={handleClick} background={swone} color='white' borderColor='brown'>Southwest</RegionButton>

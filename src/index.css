@@ -12,29 +12,29 @@ code {
     monospace;
 }
 
-.home {
+/* .home {
   text-align: center;
   padding: 2%;
-}
+} */
 
-.region {
+/* .region {
  display: inline-block;
  text-align: center;
  padding: 5%; 
  width: 20%;
-}
+} */
 
-.card-container {
+/* .card-container {
   display: inline-block;
   padding: .8rem;
   max-width: 60rem;
   max-height: 40rem;
   vertical-align: bottom;
-}
+} */
 
-.parks-container {
+/* .parks-container {
   display: block;
   text-align: center;
-}
+} */
 
 

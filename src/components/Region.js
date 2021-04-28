@@ -13,6 +13,7 @@ class Region extends Component {
         regionParks: []
     }
 
+
     componentDidMount() { 
         const stateHash = {midwest: ["OH", "IN", "ND", "SD", "MO", "NE", "KS", "MI", "IA", "MI", "IL"],
         southeast: ["KY", "TN", "NC", "VA", "WV", "GA", "FL", "SC", "AL", "MS", "LA", "AR"],
@@ -51,13 +52,25 @@ class Region extends Component {
 
     render() { 
 
+        const regionStyle = {
+            display: 'inline-block',
+            textAlign: 'center',
+            padding: '5%', 
+            width: '20%'
+        }
+
+        const parksContainer = {
+            display: 'block',
+            textAlign: 'center'
+        }
+
         return (
-            <div>
+            <>
                 <Heading textColor="brown">PARKS IN THE {this.state.regionName.toUpperCase()} </Heading>
-                <div className="parks-container">
-                {this.state.regionParks.map(park => <Park key={uuid()} region={this.state.regionName} name={park.fullName} id={park.id} description={park.description} image={park.images[0].url? park.images[0].url : "https://www.nps.gov/common/uploads/structured_data/3C7D2D96-1DD8-B71B-0BB7225181B9E6B6.jpg" } imgcaption={park.images[0].title}/>)}
+                <div className="parks-container" style ={parksContainer}>
+                    {this.state.regionParks.map(park => <Park key={uuid()} region={this.state.regionName} name={park.fullName} id={park.id} description={park.description} image={park.images[0].url? park.images[0].url : "https://www.nps.gov/common/uploads/structured_data/3C7D2D96-1DD8-B71B-0BB7225181B9E6B6.jpg" } />)}
                 </div>
-            </div>
+            </>
         )
     }
 }
