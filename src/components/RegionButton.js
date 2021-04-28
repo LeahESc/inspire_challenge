@@ -1,15 +1,25 @@
 import styled from 'styled-components'
 
 const RegionButton = styled.button`
-    max-width: 40%;
-    max-heighth: 20%; 
-    margin-left: 10%;
-    margin-bottom: 5%;
+    
+    margin: 2% 2% 5% 2%;
     padding: 30px;
     border-radius: 1rem;
-    border-size: 10rem;
-    border-color: ${props => props.textColor};
-    background: ${props => props.background};
-    color: ${props => props.textColor}
+    border-width: 15px;
+    border-color: ${props => props.borderColor};
+    background: url(${props => props.background}) 25% 25% no-repeat;
+    color: ${props => props.color};
+    font-family: 'Titan One', cursive;
+    display: inline-block;
+    width: 30rem;
+    height: 30rem;
+    padding: 5%;
+    position: relative;
+    font-size: 3rem;
+    
+    &:hover { 
+    transform: translateY(-3px);
+    box-shadow: 0 .2rem 1rem rgba(0, 0, 0, 1)
+    }
     `
 export default RegionButton

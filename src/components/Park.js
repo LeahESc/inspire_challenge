@@ -7,28 +7,19 @@ import {useState} from 'react'
 const Park = ({name, id, description, image, imgcaption, region}) => {
 
   const [isFlipped, setFlipped] = useState();
-  const [rotation, setRotation] = useState(0);
-
-  // useEffect(() => {
-  //   if (isFlipped !== isFlipped) {
-  //     setFlipped(isFlipped);
-  //     setRotation((c) => c + 180);
-  //   }
-  // }, [isFlipped]);
-
   
-    const handleClick = (e) => {
-      e.preventDefault();
-      setFlipped(!isFlipped);
-    }
+  const handleClick = (e) => {
+    e.preventDefault();
+    setFlipped(!isFlipped);
+  }
   
 
   return (
     <div className="card-container">
-    <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <ParkCardFront handleClick={handleClick} id={id} image={image} name={name} region={region}></ParkCardFront>
-      <ParkCardBack handleClick={handleClick} description={description} name={name}></ParkCardBack>
-    </ReactCardFlip>
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+        <ParkCardFront handleClick={handleClick} id={id} image={image} name={name} region={region}></ParkCardFront>
+        <ParkCardBack handleClick={handleClick} description={description} name={name}></ParkCardBack>
+      </ReactCardFlip>
     </div>
   )
 }

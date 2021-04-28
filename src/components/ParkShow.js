@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { Container, List } from 'semantic-ui-react'
-import Carousel from 'react-responsive-carousel'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Container, List, Image } from 'semantic-ui-react'
 import Heading from './Heading'
+import '@brainhubeu/react-carousel/lib/style.css'
+import uuid from 'react-uuid'
 
 const ParkShow = ({parks, match, history}) => {
     
@@ -11,33 +11,24 @@ const ParkShow = ({parks, match, history}) => {
 
     return (
         <div> 
-            <h1>Hello!</h1>
-            {/* <Carousel >
-                <div>
-                    <img src={matchedPark.images[0].url} />
-                    <p className="legend">{matchedPark.images[0].title}</p>
-                </div>
-                <div>
-                    <img src={matchedPark.images[1].url} />
-                    <p className="legend">{matchedPark.images[1].title}</p>
-                </div>
-                <div>
-                    <img src={matchedPark.images[1].url} />
-                    <p className="legend">{matchedPark.images[2].title}</p>
-                </div>
-            </Carousel> */}
-            <Container>
-            <Heading textColor='crimson'>
+            <Image key={uuid()} centered src={matchedPark.images[0].url} size='big'>
+                {/* <img src={matchedPark.images[1].url} style={{height: '50rem'}}/>
+                <img src={matchedPark.images[2].url} style={{height: '50rem'}}/>  */}
+            </Image>
+            <Container key={uuid()} >
+            <Heading textColor='brown'>
                 {matchedPark.fullName}
             </Heading>
             <div className="park-description">
                 {matchedPark.description}
             </div>
+                <h2>Weather Information:</h2>
             <div className="park-description">
                 {matchedPark.weatherInfo}
             </div>
             <List>
-                {matchedPark.activities.map(a =>  <List.Item icon='leaf' content={a.name} />)}
+                <h2>Activities: </h2>
+                {matchedPark.activities.map(a =>  <List.Item key={uuid()} icon='leaf' content={a.name} />)}
             </List>
             </Container>
             </div>

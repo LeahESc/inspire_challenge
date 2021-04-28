@@ -9,7 +9,7 @@ const ParkCardBack = ({handleClick, description, name}) => {
         <Card>
             <Card.Content header={name}/>
             <Card.Content description={description} />
-            <Button  basic color='teal' content='Teal' onClick={handleClick}>Flip</Button>
+            <Button  basic color='teal' onClick={handleClick}>Flip</Button>
         </Card>
     )
 }

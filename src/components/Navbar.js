@@ -8,7 +8,7 @@ const Navbar = () => {
         < div >
             <nav className="navbar navbar-light" style={{background: '#ffff'}}>
                 <Link to='/'>
-                    <Icon name='home' size='huge' color='yellow'/>
+                    <Icon name='home' size='huge' color='green'/>
                 </Link>
             </nav>
         </div>

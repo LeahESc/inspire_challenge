@@ -4,10 +4,6 @@ import {Link} from 'react-router-dom'
 
 const ParkCardFront = ({handleClick, image, name, id, region}) => {
 
-    const goToShoPage = () => { 
-
-    }
-
     return (
         <Card >
             <Image src={image} wrapped ui={false} style={{ borderRadius: 5, padding: '.5rem' }} />
@@ -15,7 +11,7 @@ const ParkCardFront = ({handleClick, image, name, id, region}) => {
                 <Card.Header>{name}</Card.Header>
             </Card.Content>
             <Card.Content>
-                <Button basic color='teal' content='Teal' onClick={handleClick}>Learn More</Button>
+                <Button basic color='teal' onClick={handleClick}>Learn More</Button>
                 <Link to={`/${region}/parks/${id}`}> Take Me There!</Link>
             </Card.Content>
       </Card>

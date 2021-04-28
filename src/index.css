@@ -23,4 +23,23 @@ code {
 
 .parks-container {
   display: block;
- }
+  text-align: center;
+}
+
+ .region {
+  display: inline-block;
+  text-align: center;
+  padding: 5%; 
+  width: 20%;
+}
+
+.home {
+  text-align: center;
+  padding: 2%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* background: linear-gradient(to right bottom, #ffc38b, #f5752b); */
+  box-shadow: 0 .2rem 1rem rgba(255, 181, 42, 0.89)
+}
